@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptionsGenerator", "SourceGenerator\OptionsGenerator.csproj", "{33E901D2-FDD4-482C-AB8C-21AE453597D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{54279408-FABD-497E-B6C3-6C6C26335D89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptionsGenerator.Tests.Api", "..\tests\OptionsGenerator.Tests.Api\OptionsGenerator.Tests.Api.csproj", "{9FB321D2-7339-4AB3-BEFA-27E964BDA649}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33E901D2-FDD4-482C-AB8C-21AE453597D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E901D2-FDD4-482C-AB8C-21AE453597D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E901D2-FDD4-482C-AB8C-21AE453597D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E901D2-FDD4-482C-AB8C-21AE453597D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB321D2-7339-4AB3-BEFA-27E964BDA649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB321D2-7339-4AB3-BEFA-27E964BDA649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB321D2-7339-4AB3-BEFA-27E964BDA649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB321D2-7339-4AB3-BEFA-27E964BDA649}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FB321D2-7339-4AB3-BEFA-27E964BDA649} = {54279408-FABD-497E-B6C3-6C6C26335D89}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {811AAD43-A9D6-47E2-9C21-4D032BD4B008}
+	EndGlobalSection
+EndGlobal
