@@ -2,10 +2,50 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>9.0</LangVersion>
-    <IsPackable>false</IsPackable>
-    <IsRoslynComponent>true</IsRoslynComponent>
+    <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
+    <Authors>Matteo Bortolazzo</Authors>
+    <Description>Generates and register Options in Asp.NET Core.</Description>
+    <PackageProjectUrl>https://github.com/matteobortolazzo/dotnet-options-generator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/matteobortolazzo/dotnet-options-generator</RepositoryUrl>
+    <PackageTags>source generators,ioptions,aspnet</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>0.1.0-preview</Version>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+    <None Remove="bin\$(Configuration)\netstandard2.0\\OptionsGenerator.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\icon.png" Pack="true" PackagePath="\" />
+    <None Include="License\LICENSE.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
@@ -25,5 +65,14 @@
       <TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" IncludeRuntimeDependency="false" />
     </ItemGroup>
   </Target>
+
+  <ItemGroup>
+    <Folder Include="License\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Package the generator in the analyzer directory of the nuget package -->
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
 
 </Project>
