@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SourceGenerator\OptionsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <AdditionalFiles Include="appsettings.json" />
+    <AdditionalFiles Include="appsettings.Development.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="appsettings.json" />
-    <AdditionalFiles Include="appsettings.Development.json" />
+    <ProjectReference Include="..\..\src\SourceGenerator\OptionsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
 </Project>

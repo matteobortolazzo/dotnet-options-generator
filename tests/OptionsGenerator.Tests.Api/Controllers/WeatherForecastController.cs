@@ -18,11 +18,11 @@ namespace OptionsGenerator.Tests.Api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly MyOptions _options;
+        private readonly MyOtherOptions _options;
 
         public WeatherForecastController(
             ILogger<WeatherForecastController> logger,
-            IOptions<MyOptions> cosmosOptions)
+            IOptions<MyOtherOptions> cosmosOptions)
         {
             _logger = logger;
             _options = cosmosOptions.Value;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using Microsoft.CodeAnalysis;
@@ -9,13 +8,16 @@ namespace OptionsGenerator
 {
     internal static class OptionClassGenerator
     {
+        private const string Indent = "        ";
+
         public static void Generate(GeneratorExecutionContext context, string @namespace, JsonProperty property)
         {
             var source = SourceText.From($@"
 namespace {@namespace}
 {{
     public class {property.Name}
-    {{{GetProperties(context, @namespace, property)}
+    {{
+{GetProperties(context, @namespace, property)}
     }}
 }}", Encoding.UTF8);
             context.AddSource($"{property.Name}.cs", source);
@@ -43,8 +45,9 @@ namespace {@namespace}
                     type = GetType(property.Value);
                 }
 
-                sb.Append($"public {type} {property.Name} {{ get; set; }}\n");
+                sb.AppendLine($"{Indent}public {type} {property.Name} {{ get; set; }}");
             }
+            
             return sb.ToString();
         }
 
@@ -60,7 +63,7 @@ namespace {@namespace}
 
             return propertyValue.ValueKind switch
             {
-                JsonValueKind.Number => propertyValue.TryGetDouble(out _) ? "float" : "int",
+                JsonValueKind.Number => propertyValue.TryGetInt32(out _) ? "int" : "double",
                 JsonValueKind.String => "string",
                 JsonValueKind.True or JsonValueKind.False => "bool",
                 _ => throw new ArgumentException($"Unexpected value type: {propertyValue.ValueKind}.")
